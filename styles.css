@@ -14,15 +14,21 @@
 */
 
 :root {
-  --sand: #eed3a2;
-  --cream: #fff7e0;
-  --turquoise: #0e7f7f;
-  --indigo: #2d3567;
-  --red: #bf4131;
-  --copper: #a35f2d;
-  --ink: #1f2430;
-  --muted: #6d6f78;
-  --card: #fff7eb;
+  /*
+    Adjusted palette for a warmer, storybook feel. The tones are
+    slightly softer and more aged to evoke parchment and desert
+    sunsets while retaining good contrast. Consider contrast ratios
+    when altering these values further.
+  */
+  --sand: #e9d8b0;
+  --cream: #fdf7e3;
+  --turquoise: #127a7f;
+  --indigo: #2b325c;
+  --red: #c75441;
+  --copper: #b07b45;
+  --ink: #2c2a30;
+  --muted: #6e6a75;
+  --card: #fff8f0;
   --max: 1120px;
 }
 
@@ -118,6 +124,8 @@ main section {
   line-height: 1.05;
   margin: 0.3em 0;
   color: var(--indigo);
+  font-family: Georgia, "Times New Roman", serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .lead {
@@ -151,12 +159,19 @@ section h2 {
   margin-top: 0.2em;
   margin-bottom: 0.6em;
   color: var(--indigo);
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+}
+
+/* Use a serif display font for h3 headings to reinforce the storybook aesthetic */
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--indigo);
 }
 
 .card {
@@ -191,6 +206,40 @@ section h2 {
   font-size: 0.9rem;
   color: var(--muted);
   margin-top: 8px;
+}
+
+/* Basic typography container for prose pages such as About, Privacy and Support */
+.prose {
+  max-width: var(--max);
+  margin: auto;
+  padding: 80px 20px;
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--indigo);
+  margin-top: 1.6em;
+  margin-bottom: 0.4em;
+}
+
+.prose h1 {
+  font-size: 2.5rem;
+}
+
+.prose h2 {
+  font-size: 1.8rem;
+}
+
+.prose h3 {
+  font-size: 1.4rem;
+}
+
+.prose p {
+  margin-bottom: 1.2em;
 }
 
 footer {
