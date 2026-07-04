@@ -1,4 +1,238 @@
+/*
+  This stylesheet defines a clean, modern design for the Juha’s Bad Day
+  website. It aims to capture the playful spirit of Arabian folk tales
+  with warm colours, generous spacing and soft shadows. Cards lift
+  slightly on hover to suggest interactivity, buttons have subtle
+  motion cues, and typography is scaled responsively for readability
+  across devices.
 
-:root{--sand:#e7b85c;--cream:#fff3d2;--turquoise:#0d7f83;--indigo:#21245c;--red:#a63633;--copper:#a35f2d;--ink:#1f2430;--muted:#5c6170;--card:#fffaf0;--max:1120px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#fff8e9,#f2d6a1);color:var(--ink);line-height:1.6}a{color:var(--indigo)}img{max-width:100%;height:auto;display:block}.site-header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px max(18px,calc((100vw - var(--max))/2));background:rgba(255,248,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(33,36,92,.15)}.brand{font-weight:900;text-decoration:none;color:var(--indigo)}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{text-decoration:none;font-weight:700}.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;max-width:var(--max);margin:auto;padding:72px 20px}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:var(--red);font-size:.82rem}.hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;margin:.2em 0}.lead{font-size:1.25rem}.button{display:inline-block;background:var(--indigo);color:white;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:800;margin-right:10px}.button.alt{background:var(--turquoise)}section{max-width:var(--max);margin:auto;padding:56px 20px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:var(--card);border:1px solid rgba(33,36,92,.14);border-radius:18px;padding:24px;box-shadow:0 12px 30px rgba(72,44,18,.08)}.card h3{margin-top:0}.notice{border-left:6px solid var(--red);background:#fff0dd;padding:18px;border-radius:10px}.status{display:inline-block;padding:6px 10px;border-radius:999px;background:#ffe3a6;font-weight:800}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.gallery figure{margin:0}.gallery figcaption{font-size:.9rem;color:var(--muted);margin-top:8px}.prose{max-width:820px}.prose h1{font-size:clamp(2.2rem,5vw,4rem)}.prose h2{margin-top:2rem}.kv{display:grid;grid-template-columns:220px 1fr;gap:8px 16px}.kv dt{font-weight:800}.download{padding:22px;background:var(--indigo);color:white;border-radius:16px}.download a{color:white;font-weight:800}footer{padding:36px 20px;text-align:center;background:var(--indigo);color:white;margin-top:60px}footer a{color:white}.small{font-size:.92rem;color:var(--muted)}code{background:#f2e8d0;padding:.1em .35em;border-radius:4px}.asset-badge{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;background:#a63633;color:white;padding:3px 7px;border-radius:999px}.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px;z-index:99}
-@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:42px}.grid,.gallery{grid-template-columns:1fr}.site-header{align-items:flex-start;gap:12px;flex-direction:column}.kv{grid-template-columns:1fr}.hero h1{font-size:3rem}}
+  Colour variables at the top allow for easy experimentation with the
+  palette while maintaining consistency throughout the site. The layout
+  uses CSS grid and flexbox to adapt gracefully from large screens to
+  small. This file replaces the earlier compact stylesheet and should
+  be referenced by all pages via <link rel="stylesheet" href="styles.css">.
+*/
+
+:root {
+  --sand: #eed3a2;
+  --cream: #fff7e0;
+  --turquoise: #0e7f7f;
+  --indigo: #2d3567;
+  --red: #bf4131;
+  --copper: #a35f2d;
+  --ink: #1f2430;
+  --muted: #6d6f78;
+  --card: #fff7eb;
+  --max: 1120px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--indigo);
+  text-underline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px max(20px, calc((100vw - var(--max)) / 2));
+  background: rgba(255, 247, 235, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(45, 53, 103, 0.1);
+  box-shadow: 0 2px 10px rgba(45, 53, 103, 0.06);
+}
+
+.brand {
+  font-weight: 900;
+  text-decoration: none;
+  color: var(--indigo);
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--turquoise);
+}
+
+main section {
+  max-width: var(--max);
+  margin: auto;
+  padding: 80px 20px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  color: var(--red);
+  font-size: 0.8rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.05;
+  margin: 0.3em 0;
+  color: var(--indigo);
+}
+
+.lead {
+  font-size: 1.35rem;
+  max-width: 52ch;
+}
+
+.button {
+  display: inline-block;
+  background: var(--indigo);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  margin-right: 16px;
+  transition: all 0.3s ease;
+}
+
+.button.alt {
+  background: var(--turquoise);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+section h2 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-top: 0.2em;
+  margin-bottom: 0.6em;
+  color: var(--indigo);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  border: 1px solid rgba(45, 53, 103, 0.1);
+  padding: 32px;
+  box-shadow: 0 14px 30px rgba(45, 53, 103, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(45, 53, 103, 0.08);
+}
+
+.notice {
+  border-left: 6px solid var(--red);
+  background: #fff3dd;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 820px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+footer {
+  padding: 48px 20px;
+  text-align: center;
+  background: var(--indigo);
+  color: white;
+  margin-top: 80px;
+}
+
+footer a {
+  color: white;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.asset-badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--red);
+  color: white;
+  padding: 3px 7px;
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
